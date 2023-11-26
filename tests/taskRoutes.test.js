@@ -1,4 +1,4 @@
-const chat = require('chai');
+const chai = require('chai');
 const chaiHttp = require('chai-http');
 const app = require('../index');
 const should = chai.should();
@@ -34,7 +34,7 @@ describe('Task Routes', () => {
         });
     });
 
-    describe('/getAllTasks', () => {
+    describe('/getAllUsersTasks', () => {
         it('should get all users tasks', async () => {
             const res = await res.request(app).get('/getAllUsersTasks');
             res.should.have.status(200);

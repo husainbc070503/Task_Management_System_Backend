@@ -80,11 +80,10 @@ router.get('/getTasksStatistics', async (req, res) => {
         const totalTasks = await Task.countDocuments();
 
         const completedTasksCount = await Task.count({ status: "Completed" });
-        const completedTasks = await Task.find({ status: "Completed" });
+        const completedTasks = await Task.find({ status: "com" });
 
         const sevenDaysAgo = new Date();
         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-        console.log(sevenDaysAgo);
         const tasksCompletedSevenDaysAgo = await Task.find({
             status: "Completed",
             updatedAt: { $gte: sevenDaysAgo }
